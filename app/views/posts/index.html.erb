@@ -1,3 +1,27 @@
-Display all of your posts here
+<h1>Display all Posts</h1>
+
+<table>
+	<tr>
+		<th>Bru Name</th>
+		<th>Title</th>
+		<th>Body</th>
+		<th = colspan="3"></th>
+	</tr>
+
+	<% @posts.each do |post| %>
+		<tr>
+			<th><%= post.bru_name %></th>
+			<th><%= post.title %></th>
+			<th><%= post.body %></th>
+			<th><%= link_to 'Edit Post', edit_post_path(post) %>
+			<th><%= link_to 'Delete Post', post_path(post), method: :delete, data: {
+	  	confirm: "do you want to delete this?"
+	  	} %></th>
+		</tr>
+	<% end %>
+
+</table>
+
+<%= link_to 'New Bru', new_post_path %>
 
 <!-- Create the rest of your views in the posts folder -->
